@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/dashboard1}">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta</title>
+</head>
+
+
+<body>
+    <div class="main-content container-fluid" layout:fragment="content">
+<div id="auth">
+
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 mx-auto">
+                <div class="card pt-4">
+                    <div class="card-body">
+                        <div class="text-center mb-5">
+                            <img th:src="@{/images/contacto.png}" height="48" class='mb-4'>
+                            <h3>Consulta</h3>
+                            <p>Consulta lo que quieras mi Faraon Love Shady</p>
+                        </div>
+                        <form  th:object="${contact}" th:action="@{/Contacto/Contacto}" method="post">
+                            <div class="form-group position-relative has-icon-left">
+                                <label for="name">Nombre</label>
+                                <div class="position-relative">
+                                    <input type="nombre"  class="form-control" th:field="*{name}" required />
+                                    <div class="form-control-icon">
+                                        <i data-feather="user"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group position-relative has-icon-left">
+                                <label for="email">Email:</label>
+                                <div class="position-relative">
+                                    <input type="apellido"  class="form-control" autocomplete="off"  th:field="*{email}" required />
+                                    <div class="form-control-icon">
+                                        <i data-feather="at-sign"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group position-relative has-icon-left">
+                                <label for="phone">Telefono:</label>
+                                <div class="position-relative">
+                                    <input type="phone"  class="form-control" th:field="*{phone}" required/>
+                                    <div class="form-control-icon">
+                                        <i data-feather="phone-call"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group position-relative has-icon-left">
+                                <label for="phone">Consulta:</label>
+                                <div class="position-relative">
+                                    <input type="phone"  class="form-control" rows="4" th:field="*{reason}" required/>
+                                    <div class="form-control-icon">
+                                        <i data-feather="file-text"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="divider">
+                                <div class="divider-text" > <button th:with="text='Enviar Consulta'" class="btn btn-dark" type="submit" th:text="${text}"> Enviar</div>
+                            </div>
+                        </form>
+                        <p th:text="${mensaje}"></p>
+
+ 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+</body>
+
+</html>
