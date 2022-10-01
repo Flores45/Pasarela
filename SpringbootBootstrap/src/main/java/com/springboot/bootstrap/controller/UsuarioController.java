@@ -18,7 +18,7 @@ import javax.validation.Valid;
 public class UsuarioController {
     
 
-    private static final String INDEX = "/login";
+    private static final String INDEX = "login";
     private static String MODEL_CONTACT="user";
     private static String MODEL_MESSAGE="mensaje";
     private final UsuarioRepository usuariosData;
@@ -27,12 +27,12 @@ public class UsuarioController {
         this.usuariosData = usuariosData;
     }   
 
-    @GetMapping("/login")
+    @GetMapping("login")
     public String login(Model model) {
         model.addAttribute("user", new Usuario());
         return INDEX;
     }
-    @PostMapping("/login")
+    @PostMapping("login")
     public String LoginPost(Model model, @Valid Usuario objUser, HttpServletRequest request, 
     BindingResult result ){
         String page=INDEX;
