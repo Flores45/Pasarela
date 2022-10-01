@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:jre-11.0.6_10-alpine
+FROM openjdk:18-jdk-alpine
 RUN addgroup -S spring && adduser -S spring -G spring
 RUN apk add ttf-dejavu
 USER spring:spring
