@@ -12,11 +12,10 @@ public class HomeController {
     private static final String VIEW_DASHBOARD2 ="dashboard2"; 
     private static final String VIEW_OPTION ="Dash/opcionDash"; 
     private static final String VIEW_BANCARIA ="PagoBancaria/PagoBancaria"; 
-    private static final String HOME_INDEX ="Casita"; 
 
     @GetMapping("/")
-    public String index(Model model) {
-        return HOME_INDEX;
+    public String index() {
+        return "Casita";
     }
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
