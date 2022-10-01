@@ -28,7 +28,7 @@
                             <div class="form-group position-relative has-icon-left">
                                 <label for="name">Nombre</label>
                                 <div class="position-relative">
-                                    <input type="nombre"  class="form-control" th:field="*{name}" required />
+                                    <input type="text"  class="form-control" th:field="*{name}" required />
                                     <div class="form-control-icon">
                                         <i data-feather="user"></i>
                                     </div>
@@ -38,7 +38,7 @@
                             <div class="form-group position-relative has-icon-left">
                                 <label for="email">Email:</label>
                                 <div class="position-relative">
-                                    <input type="apellido"  class="form-control" autocomplete="off"  th:field="*{email}" required />
+                                    <input type="text"  class="form-control" autocomplete="off"  th:field="*{email}" required />
                                     <div class="form-control-icon">
                                         <i data-feather="at-sign"></i>
                                     </div>
@@ -47,7 +47,7 @@
                             <div class="form-group position-relative has-icon-left">
                                 <label for="phone">Telefono:</label>
                                 <div class="position-relative">
-                                    <input type="phone"  class="form-control" th:field="*{phone}" required/>
+                                    <input type="text"  class="form-control" th:field="*{phone}" required/>
                                     <div class="form-control-icon">
                                         <i data-feather="phone-call"></i>
                                     </div>
@@ -55,9 +55,9 @@
                             </div>
 
                             <div class="form-group position-relative has-icon-left">
-                                <label for="phone">Consulta:</label>
+                                <label for="reason">Consulta:</label>
                                 <div class="position-relative">
-                                    <input type="phone"  class="form-control" rows="4" th:field="*{reason}" required/>
+                                    <input type="text"  class="form-control" rows="4" th:field="*{reason}" required/>
                                     <div class="form-control-icon">
                                         <i data-feather="file-text"></i>
                                     </div>
@@ -65,7 +65,11 @@
                             </div>
 
                             <div class="divider">
-                                <div class="divider-text" > <button th:with="text='Enviar Consulta'" class="btn btn-dark" type="submit" th:text="${text}"> Enviar</div>
+                                <div class="divider-text" >
+                                    <button th:with="text='Enviar Consulta'" class="btn btn-dark" type="submit" th:text="${text}"> Enviar
+                                        Consulta</button>
+
+                                </div>
                             </div>
                         </form>
                         <p th:text="${mensaje}"></p>
