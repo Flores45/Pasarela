@@ -13,7 +13,7 @@ import org.springframework.data.jpa.repository.Query;
 public interface PagoRepository extends JpaRepository<Pago, Integer>{
 
     @Query("SELECT o FROM Pago o WHERE o.numeroTarjeta=?1")
-    Optional<Pago> findByNumTarjeta(Integer numeroTarjeta);
+    Optional<Pago> findByNumTarjeta(String numeroTarjeta);
     
     
     @Query("SELECT tipoTarjeta as tipoTarjeta, SUM(p.monto) as monto FROM Pago p GROUP BY p.tipoTarjeta")

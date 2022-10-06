@@ -28,11 +28,11 @@ public class ContactoController {
     public String createSubmitForm(Model model, 
         @Valid Contacto objContact, BindingResult result ){
         if(result.hasFieldErrors()) {
-            model.addAttribute("mensaje", "No se registro un contacto");
+            model.addAttribute("mensaje", "NO SE REGISTRO SU CONSULTA");
         }else{
             this.contactsData.save(objContact);
             model.addAttribute(MODEL_CONTACT, objContact);
-            model.addAttribute("mensaje", "Se registro un contacto");
+            model.addAttribute("mensaje", "SE REGISTRO SU CONSULTA");
         }
         return INDEX;
     }

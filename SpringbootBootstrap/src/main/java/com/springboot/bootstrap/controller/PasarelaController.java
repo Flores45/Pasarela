@@ -4,7 +4,10 @@ import com.springboot.bootstrap.model.*;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
 import com.springboot.bootstrap.repository.*;
+
+
 import java.util.*;
+
 
 
 
@@ -25,16 +28,16 @@ public PasarelaController(PagoRepository pagoData){
 }
 //Tarjeta
 @PostMapping(value = "/{createTarjeta}", produces = MediaType.APPLICATION_JSON_VALUE)
-public ResponseEntity <Integer> createTarjeta(@RequestBody Pago pa){
+public ResponseEntity <String> createTarjeta(@RequestBody Pago pa){
 
   pagoData.save(pa);
   pagoData.flush();
     
-    return new ResponseEntity<Integer>(pa.getNumeroTarjeta(), HttpStatus.CREATED);
+    return new ResponseEntity<String>(pa.getNumeroTarjeta(), HttpStatus.CREATED);
 
 }
 @GetMapping(value = "/{numeroTarjeta}", produces = MediaType.APPLICATION_JSON_VALUE)
-public ResponseEntity<Pago> NumTarjeta(@PathVariable Integer numeroTarjeta){
+public ResponseEntity<Pago> NumTarjeta(@PathVariable String numeroTarjeta){
     Optional<Pago> optPago = pagoData.findByNumTarjeta(numeroTarjeta);
     if(optPago.isPresent()){
         Pago pa = optPago.get();
@@ -43,4 +46,7 @@ public ResponseEntity<Pago> NumTarjeta(@PathVariable Integer numeroTarjeta){
         return new ResponseEntity<Pago>(HttpStatus.NOT_FOUND);
     }
 } 
+
+
+
 }

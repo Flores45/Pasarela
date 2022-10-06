@@ -38,7 +38,7 @@ public class RegisterController {
     public String create(Model model, 
         @Valid Register objRegister, BindingResult result ){
         if(result.hasFieldErrors()) {
-            model.addAttribute("mensaje", "No se registro con exito");
+            model.addAttribute("mensaje", "NO SE REGISTRO");
         }else{
             Usuario user = objRegister.getUser();
             user.setTipoUsuario("R");
@@ -46,9 +46,13 @@ public class RegisterController {
             this.usuariosData.flush();
             this.registerData.save(objRegister);
             model.addAttribute(MODEL_CONTACT, objRegister);
-            model.addAttribute("mensaje", "Se registro con exito");
+            model.addAttribute("mensaje", "SE REGISTRO CON EXITO");
         }
         return INDEX;
     }
+
+    
+
+    
 
 }

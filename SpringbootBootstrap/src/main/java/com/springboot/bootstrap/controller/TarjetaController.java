@@ -32,15 +32,17 @@ public class TarjetaController {
     @PostMapping("/PagoTarjeta/PagoTarjeta")
     public String createSubmitForm(Model model, 
         @Valid Pago objTarje, BindingResult result){
-        if(result.hasFieldErrors()) {
-            model.addAttribute("mensaje", "No se registro su pago");
+        if(result.hasErrors()) {
+            return INDEX;
         }else{
             this.tarjeData.save(objTarje);
             model.addAttribute(MODEL_CONTACT, objTarje);
-            model.addAttribute("mensaje", "Se registro su pago");
+            model.addAttribute("mensaje", "SE REGISTRO SU PAGO");
         }
         return INDEX;
     }
+
+
     
     /* 
     @GetMapping("/Usuario/Atras")

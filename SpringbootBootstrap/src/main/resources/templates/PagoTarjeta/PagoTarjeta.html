@@ -19,16 +19,17 @@
             <div class="col-md-5 col-sm-12 mx-auto">
                 <div class="card pt-1">
                     <div class="card-body">
-                        <div class="text-center mb-5">
+                        <div class="text-center mb-5"> 
                             <img th:src="@{/images/pago.png}" height="48" class='mb-4'>
+                            <img th:src="@{/images/visa.png}" height="48" class='mb-4'>
                             <h3>Pago Tarjeta </h3>
-                            <p>Apura Gil</p>
+                            <p>VISA</p>
                         </div>
                         <form  form th:object="${pago}" th:action="@{/PagoTarjeta/PagoTarjeta}" method="post">
                             <div class="form-group position-relative has-icon-left">
                                 <label for="nombreTarjeta">Nombre Titular</label>
                                 <div class="position-relative">
-                                    <input type="text"  class="form-control" th:field="*{nombreTarjeta}" required />
+                                    <input type="text"  class="form-control"  th:field="*{nombreTarjeta}"  required />
                                     <div class="form-control-icon">
                                         <i data-feather="user"></i>
                                     </div>
@@ -38,7 +39,8 @@
                             <div class="form-group position-relative has-icon-left">
                                 <label for="numeroTarjeta" >Numero Tarjeta:</label>
                                 <div class="position-relative">
-                                    <input type="text"  class="form-control"th:field="*{numeroTarjeta}" required/>
+                                    <input type="text"  class="form-control" th:field="*{numeroTarjeta}" required/>
+                                    <small  class="form-text text-danger" th:if="${#fields.hasErrors('numeroTarjeta')}" th:errors="*{numeroTarjeta}"></small>
                                     <div class="form-control-icon">
                                         <i data-feather="credit-card"></i> 
                                 </div>
@@ -47,8 +49,9 @@
 
                             <div class="form-group position-relative has-icon-left">
                                 <label for="tipoTarjeta">Tipo Tarjeta:</label>
-                                <div class="position-relative">
-                                    <input type="text"  class="form-control" th:field="*{tipoTarjeta}" required/>
+                               <div class="position-relative">
+                                    <input type="text"  class="form-control"  th:field="*{tipoTarjeta}" required  />
+
                                     <div class="form-control-icon">
                                         <i data-feather="sidebar"></i>
                                     </div>
@@ -58,7 +61,8 @@
                             <div class="form-group position-relative has-icon-left">
                               <label for="fechaVencimiento">Fecha de Vencimiento:</label>
                               <div class="position-relative">
-                                  <input type="text"  class="form-control" th:field="*{fechaVencimiento}" required />
+                                  <input type="month" min="2022-11-31" max="2026-12-25" class="form-control" th:field="*{fechaVencimiento}" required />
+                                  
                                   <div class="form-control-icon">
                                     <i data-feather="calendar"></i>
                                   </div>
@@ -69,6 +73,7 @@
                             <label for="codigoCcv">CVV:</label>
                             <div class="position-relative">
                                 <input type="text"  class="form-control"  th:field="*{codigoCcv}" required/>
+                                <small  class="form-text text-danger" th:if="${#fields.hasErrors('codigoCcv')}" th:errors="*{codigoCcv}"></small>
                                 <div class="form-control-icon">
                                     <i data-feather="credit-card"></i>
                                 </div>
@@ -79,6 +84,7 @@
                           <label for="dni">DNI:</label>
                           <div class="position-relative">
                               <input type="text"  class="form-control"   th:field="*{dni}" required/>
+                              <small  class="form-text text-danger" th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></small>
                               <div class="form-control-icon">
                                 <i data-feather="user"></i>
                                
