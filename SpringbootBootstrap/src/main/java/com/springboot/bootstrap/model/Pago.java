@@ -29,7 +29,7 @@ public class Pago {
 
     private String tipoTarjeta;
 
-    @Size(min = 3, max = 3, message="EL CODIGO CVV TIENE 3 DIGITOS BABOSO")
+    @Size(min = 3,  message="EL CODIGO CVV TIENE 3 DIGITOS BABOSO")
     private String codigoCcv;
 
     @Size(min = 8, max = 8, message="SU DNI  CONTIENE 8 DIGITOS BURRO DE MRD")
