@@ -28,7 +28,7 @@ public class ReniecApi {
 
         try {
 
-           reniec = restTemplate.getForObject("https://app-reniec.herokuapp.com/api/persona/dni={dni}&apiKey={apiKey}", UserReniec.class, uriVariables);
+            reniec = restTemplate.getForObject("https://app-reniec.herokuapp.com/api/persona/dni={dni}&apiKey={apiKey}", UserReniec.class, uriVariables);
 
         } catch (Exception e) {
             
