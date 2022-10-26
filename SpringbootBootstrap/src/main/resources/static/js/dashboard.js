@@ -9,13 +9,13 @@ function graficoPrincipal() {
       }).done(function (jsonData) {
         var data = new google.visualization.DataTable();
         data.addColumn('string', 'tipo');
-        data.addColumn('number', 'saldo');
+        data.addColumn('number', 'id');
         
 
         jsonData.forEach(function (row) {
           data.addRow([
             row.tipo,
-            row.saldo
+            row.id
           ]);
         });
 

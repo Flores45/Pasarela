@@ -21,7 +21,7 @@
             <ul class="menu">
 
                 
-                <li class='sidebar-title'>Pages</li>
+                <li class='sidebar-title'>USER</li>
 
 
 
@@ -45,61 +45,84 @@
             </ul>
         </div>
 
+
+
+
+
+
+
+
+
+
         <th:block sec:authorize="isAuthenticated()">
-            <th:block sec:authorize="hasRole('ROLE_ADMIN')"></th:block>
+
+            <th:block sec:authorize="hasRole('ROLE_ADMIN')">
         <div class="sidebar-menu">
-
-          
-
             <ul class="menu">
 
-               
-                <li class='sidebar-title'>Menu</li>
-                <th:block sec:authorize="isAuthenticated()">
-                <th:block sec:authorize="hasRole('ROLE_ADMIN')"></th:block>
-                <li class="sidebar-item has-sub ">
-                    <a href="/Dash/opcionDash" class='sidebar-link'>
-                        <i data-feather="home" width="20"></i>
+                
+                <li class='sidebar-title'>ADMINISTRADOR</li>
+
+
+
+                <li class="sidebar-item  has-sub">
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="user" width="20"></i>
                         <span>Dashboard</span>
                     </a>
+
                     <ul class="submenu ">
 
                         <li>
                             <a href="/dashboard">DASHBOARD</a>
                             <a href="/tarjeta/validarDNI">NUEVA TARJETA</a>
-                            <a href="/tarjeta/listar">TARJETAS</a>
                         </li>
+
+
                     </ul>
+
                 </li>
-            </th:block>
    
+            </ul>
+        </div>
+    </th:block>
 
 
-        
 
-            <th:block sec:authorize="hasRole('ROLE_USER')">
+    <th:block sec:authorize="hasRole('ROLE_USER')">
+        <div class="sidebar-menu">
+            <ul class="menu">
+
+                
+                <li class='sidebar-title'>TARJETAS</li>
+
+
 
                 <li class="sidebar-item  has-sub">
-                    <a href="/Pago/OpcionesPago" class='sidebar-link'>
-                        <i data-feather="briefcase" width="20"></i>
-                        <span>Realizar un Pago</span>
+                    <a href="#" class='sidebar-link'>
+                        <i data-feather="user" width="20"></i>
+                        <span>Realizar Pagos</span>
                     </a>
 
                     <ul class="submenu ">
+
                         <li>
                             <a href="/tarjeta/pagar">PAGAR</a>
                             <a href="/tarjeta/abonar">ABONAR</a>
                             <a href="/integracion/">API KEY</a>
                             <a href="/tarjeta/listar">TARJETAS</a>
-
                         </li>
+
+
                     </ul>
+
                 </li>
-            </th:block>
-
-
+   
             </ul>
         </div>
+    </th:block>
+
+
 
     </th:block>
 

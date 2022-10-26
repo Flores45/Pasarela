@@ -19,7 +19,7 @@ public interface PagoRepository extends JpaRepository<Pago, Integer>{
     List<Pago> getPagosTarjeta(@Param("tarjetaId") Integer tarjetaId, @Param("fechaInicio") String fechaInicio, @Param("fechaFin") String fechaFin);
 
    
-    @Query("SELECT tipo as tipo, SUM(p.saldo) as saldo FROM Tarjeta p GROUP BY p.tipo")
+    @Query("SELECT tipo as tipo, SUM(p.id) as id FROM Tarjeta p GROUP BY p.tipo")
     List<Map<String, Object>> querySumaTotal();
 
 
