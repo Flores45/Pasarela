@@ -9,7 +9,7 @@ public class Constants {
     public static final Double maxPENDefault = 400.0;
     public static final Double maxUSDDefault = 100.0;
 
-    public static final String URLFuxiaPass = "http://localhost:8188/";
+    public static final String URLFuxiaPass = "pasarelas.herokuapp.com";
     public static final String APITarjeta = "api/tarjeta/";
     public static final String pagar = "pagar";
     public static final String abonar = "abonar";
