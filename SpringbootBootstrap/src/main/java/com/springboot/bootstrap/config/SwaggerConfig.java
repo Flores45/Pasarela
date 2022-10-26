@@ -23,7 +23,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("PASARELAS API")
+                .title("PASARELAS USMP API")
                 .description("PASARELAS DE PAGOS USMP")
                 .build();
     }

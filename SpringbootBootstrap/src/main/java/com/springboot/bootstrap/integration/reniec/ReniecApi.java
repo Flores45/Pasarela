@@ -18,17 +18,15 @@ public class ReniecApi {
     public UserReniec findExitsUserByDni(String dni){
 
         UserReniec reniec = null;
-        String apiKey = System.getenv("API_KEY_RENIEC");
 
         HashMap<String, String> uriVariables = new HashMap<>();
 
         uriVariables.put("dni", dni);
-        uriVariables.put("apiKey", apiKey);
-
+        uriVariables.put("apiKey", System.getenv("API_KEY_RENIEC"));
 
         try {
 
-            reniec = restTemplate.getForObject("https://app-reniec.herokuapp.com/api/persona/dni={dni}&apiKey={apiKey}", UserReniec.class, uriVariables);
+           reniec = restTemplate.getForObject("https://app-reniec.herokuapp.com/api/persona/dni={dni}&apiKey={apiKey}", UserReniec.class, uriVariables);
 
         } catch (Exception e) {
             
