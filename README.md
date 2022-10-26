@@ -1,2 +1,0 @@
-# Pasarelas de pagos
-
