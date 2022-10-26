@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" >
+
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pasarela</title>
+        <link rel="stylesheet" th:href="@{css/bootstrap.css}">
+    
+        <link rel="shortcut icon" th:href="@{images/login.png}" type="image/x-icon">
+        <link rel="stylesheet" th:href="@{css/app.css}">
+    </head>
+<body>
+    <h1>¡¡¡Bienvenido a FuxiaPass!!!</h1>
+
+    <p th:text="${mensaje}"></p>
+
+    <th:block sec:authorize="isAuthenticated()">
+        
+        <th:block sec:authorize="hasRole('ROLE_ADMIN')">
+            <a th:href="@{/tarjeta/validarDNI}">Crear tarjeta</a>
+        </th:block>
+
+        <a th:href="@{/tarjeta/pagar}">Pasarela de pagos</a>
+        <a th:href="@{/tarjeta/abonar}">Abonar dinero</a>
+    </th:block>
+
+    <th:block sec:authorize="!isAuthenticated()">
+        <a th:href="@{/usuario/login}">Debe iniciar sesión para poder interactuar con la aplicación</a>
+    </th:block>
+
+</body>
+</html>

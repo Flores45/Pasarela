@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/dashboard1}">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API KEY</title>
+</head>
+
+
+<body>
+   <div class="main-content container-fluid" layout:fragment="content">
+
+
+  <div class="card widget-todo">
+      <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+        <h4 class="card-title d-flex">
+            <i class='bx bx-check font-medium-5 pl-25 pr-75'></i>GENERAR API KEY</h4>
+        <th:block th:if="${apikey == null}">
+            <form th:action="@{crearAPIKey}" method="post">
+                <button type="success" class="btn" style="background-color: rgb(96, 169, 218); color:white;">Generar APIKey</button>
+            </form>
+        </th:block>
+
+      </div>
+
+
+    <div class="card-body px-0 py-1">
+      <div class="container">
+        <th:block th:if="${apikey != null}">
+
+ 
+
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>API KEY</th>
+                        <th>FECHA EMITIDAD</th>
+                        <th>VALIDO DESDE</th>
+                        <th>CADUCIDAD</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td th:text="${apikey.token}"></td>
+                        <td th:text="${#dates.format(apikey.createDate, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                        <td th:text="${#dates.format(apikey.validSince, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                        <td th:text="${#dates.format(apikey.dueDate, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </th:block>
+         
+         <div id="chart_div"></div>
+         <center>
+         <img th:src="@{/images/logo.png}" height="" class=''>
+      </center>
+      </div>
+   </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script th:src="@{/js/dashboard.js}"></script>  
+</body>
+</html>

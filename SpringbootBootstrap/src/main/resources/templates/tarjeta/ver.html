@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/dashboard1}">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+
+<body>
+   <div class="main-content container-fluid" layout:fragment="content">
+
+
+  <div class="card widget-todo">
+      <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+        <h4 class="card-title d-flex">
+            <i class='bx bx-check font-medium-5 pl-25 pr-75'></i>DETALLES</h4>
+   
+
+      </div>
+
+
+    <div class="card-body px-0 py-1">
+      <div class="container">
+      
+
+            <form class="form" th:object="${tarjeta}" th:action="@{/tarjeta/edit}" method="post">
+                <input type="text" th:field="*{id}" hidden>
+                <div class="form-row">
+
+                    <div class="col-md-6">
+
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" th:field="*{active}" required>
+                            <label class="form-check-label" for="active">Compras por internet</label>
+                          </div>
+
+                    </div>
+
+                    <div class="col-md-6">
+
+                        <label for="limDiario">Límite diario</label>
+                        <div class="input-group mb-2">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text" th:text="${monedaTarjeta == 'PEN'} ? 'S/.' : '$'"></div>
+                            </div>
+                            <input type="number" step="0.01" class="form-control" th:field="*{limDiario}" required>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="form-row">
+                    <div class="col-md">
+                        <button type="submit" class="btn" style="background-color: rgb(126, 182, 228); color: white;">Guardar</button>
+                    </div>
+                </div>
+
+            </form>
+
+
+
+            <form class="form-inline" th:action="@{/tarjeta/ver/} + ${idTarjeta}" method="get">
+
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="fechaInicio" class="sr-only">Desde</label>
+                    <input type="date" class="form-control" name="fechaInicio" th:value="${fechaInicio}" required>
+                </div>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="fechaFin" class="sr-only">Hasta</label>
+                    <input type="date" class="form-control" name="fechaFin" th:value="${fechaFin}" required>
+                </div>
+                <button type="submit" class="btn mb-2" style="background-color: rgb(126, 182, 228); color: white;">Filtrar</button>
+
+            </form>
+
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th>Fecha y hora</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr th:each="pago : ${listaPagos}">
+                        <td th:text="${#dates.format(pago.fechaHora, 'dd/MM/yyyy HH:mm:ss')}"></td>
+                        <td th:text="${monedaTarjeta == 'PEN'} ? 'S/. ' + ${pago.monto} : '$ ' + ${pago.monto}" style="color:red;"></td>
+                    </tr>
+                </tbody>
+            </table>
+         
+         <div id="chart_div"></div>
+         <center>
+         <img th:src="@{/images/logo.png}" height="" class=''>
+      </center>
+      </div>
+   </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script th:src="@{/js/dashboard.js}"></script>  
+</body>
+</html>

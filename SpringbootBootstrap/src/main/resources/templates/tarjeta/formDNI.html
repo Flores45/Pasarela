@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/dashboard1}">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUSCAR_DNI</title>
+
+</head>
+<body>
+    <div class="main-content container-fluid" layout:fragment="content">
+    <div id="auth">
+    
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-12 mx-auto">
+                    <div class="card pt-4">
+                        <div class="card-body">
+                            <div class="text-center mb-5">
+                                <img th:src="@{/images/login.png}" height="48" class='mb-4'>
+                                <h3>Buscar DNI</h3>
+                                <p>INGRESE SU DNI</p>
+                            </div>
+                            <form  th:action="@{/tarjeta/validarDNI}"method="post">
+    
+                                <div class="form-group position-relative has-icon-left">
+                                    <label for="username">DNI</label>
+                                    <div class="position-relative">
+                                        <input type="text" class="form-control" name="dni" required>
+                                        <div class="form-control-icon">
+                                            <i data-feather="user"></i>
+                                        </div>
+                                    </div>
+    
+                                    
+    
+    
+    
+                                <div class="divider">
+                                    <div class="divider-text">
+                                        <button th:with="text='Buscar'" class="btn btn-dark"  th:text="${text}">
+                                    </div>
+                                </div>
+    
+    
+                            </form>
+                            <p th:text="${mensaje}"></p>
+    
+    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+</div>
+
+
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/dashboard1}">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+
+<body>
+   <div class="main-content container-fluid" layout:fragment="content">
+
+
+  <div class="card widget-todo">
+      <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+             <h4 class="card-title d-flex">
+            <i class='bx bx-check font-medium-5 pl-25 pr-75'></i>DASHBOARD - TARJETAS</h4>
+      </div>
+
+    <div class="card-body px-0 py-1">
+      <div class="container">
+         
+         <div id="chart_div"></div>
+         <center>
+         <img th:src="@{/images/logo.png}" height="" class=''>
+      </center>
+      </div>
+   </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script th:src="@{/js/dashboard.js}"></script>  
+</body>
+</html>

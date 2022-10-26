@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layouts/dashboard1}">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+
+
+<body>
+   <div class="main-content container-fluid" layout:fragment="content">
+
+
+  <div class="card widget-todo">
+      <div class="card-header border-bottom d-flex justify-content-between align-items-center">
+        <h4 class="card-title d-flex">
+            <i class='bx bx-check font-medium-5 pl-25 pr-75'></i>TARJETAS</h4>
+   
+
+      </div>
+
+
+    <div class="card-body px-0 py-1">
+      <div class="container">
+        <table class="table">
+
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Número</th>
+                    <th>Válida hasta</th>
+                    <th>Saldo</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="tarjeta : ${listaTarjetas}">
+                    <td>
+                        <th:block th:if="${tarjeta.tipo == 'V'}">
+                            <img th:src="@{/images/visa.png}" width="40px" height="45px">
+                        </th:block>
+                        <th:block th:if="${tarjeta.tipo == 'M'}">
+                            <img th:src="@{/images/mas.png}" width="48px" height="27px">
+                        </th:block>
+                    </td>
+                    <td th:text = "${tarjeta.credenciales}"></td>
+                    <td th:text = "${#dates.format(tarjeta.dueDate, 'MM/yyyy')}"></td>
+                    <td th:text = "${tarjeta.moneda == 'PEN'} ? 'S/. ' + ${tarjeta.saldo} : '$ ' + ${tarjeta.saldo}"></td>
+                    <td><a th:href = "@{'/tarjeta/ver/__${tarjeta.id}__'}" class="btn" style="background-color:rgb(126, 182, 228); color:rgb(8, 8, 8);">+</a></td>
+                </tr>
+            </tbody>
+            
+        </table>
+         
+         <div id="chart_div"></div>
+         <center>
+         <img th:src="@{/images/logo.png}" height="" class=''>
+      </center>
+      </div>
+   </div>
+
+</div>
+
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script th:src="@{/js/dashboard.js}"></script>  
+</body>
+</html>
